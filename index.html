@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAINDSET | Lideranca Estrategica em IA</title>
+    <meta name="description" content="Escola de mentorias MAINDSET. Formacao em lideranca estrategica de IA com Christiane Eneas Silva e Walter Jose Horning Junior.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #060606;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+        .text-balance { text-wrap: balance; }
+
+        /* ===== GRADIENTS ===== */
+        .gold-gradient {
+            background: linear-gradient(135deg, #B8902F 0%, #E8C572 35%, #F4D27A 50%, #D4AF37 70%, #9A7820 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .silver-gradient {
+            background: linear-gradient(135deg, #BCBCBC 0%, #FFFFFF 50%, #8E8E8E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-text {
+            color: #D4AF37;
+        }
+        .gold-text-escuro {
+            color: #C49B20;
+        }
+
+        /* ===== DECORATIVE ===== */
+        .subtle-grid {
+            background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .gold-line {
+            background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+        }
+        .gold-line-vertical {
+            background: linear-gradient(180deg, transparent 0%, #D4AF37 50%, transparent 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+        }
+        .glow-dot {
+            width: 8px; height: 8px;
+            background: #D4AF37;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background-image: url('../fundo.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            z-index: 0;
+        }
+        .hero-glow {
+            position: absolute;
+            top: -15%; right: -5%;
+            width: 50%; height: 50%;
+            border-radius: 50%;
+            filter: blur(140px);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+            z-index: 1;
+        }
+        .hero-glow-2 {
+            position: absolute;
+            bottom: -10%; left: -5%;
+            width: 40%; height: 40%;
+            border-radius: 50%;
+            filter: blur(120px);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.10) 0%, transparent 70%);
+            z-index: 1;
+        }
+        .watermark-ia {
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+            opacity: 0.05;
+            font-size: 480px;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 0.78;
+        }
+
+        /* ===== MENTOR CARDS ===== */
+        .mentor-card {
+            background: #0A0A0A;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .mentor-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.08);
+        }
+        .mentor-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+        .mentor-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: filter 0.4s ease;
+        }
+        .mentor-card:hover .mentor-img-wrap img {
+            filter: grayscale(0%);
+        }
+
+        /* ===== STAT COUNTER ===== */
+        .stat-block {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== SECTION ===== */
+        .section-padding {
+            padding: 100px 20px;
+        }
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .section-tag .dot {
+            width: 6px;
+            height: 6px;
+            background: #D4AF37;
+            border-radius: 50%;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== SYNERGY ===== */
+        .synergy-card {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 2.5rem;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-decoration: none;
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            color: #fff;
+        }
+        .contact-item i {
+            color: #D4AF37;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .mentor-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .watermark-ia {
+                font-size: 280px;
+                right: -20px;
+                top: 55%;
+            }
+            .hero-title-main {
+                font-size: clamp(2.5rem, 8vw, 5rem);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+<!-- ================================================================== -->
+<!-- HERO -->
+<!-- ================================================================== -->
+<section class="hero" id="home">
+    <div class="hero-bg-img"></div>
+    <div class="absolute inset-0 subtle-grid opacity-[0.15] z-[1]"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="watermark-ia gold-gradient">IA</div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <!-- Badge -->
+        <div class="flex items-center justify-center gap-3 mb-8">
+            <span class="h-[1px] w-10 gold-line opacity-60"></span>
+            <span class="text-[11px] tracking-[0.3em] uppercase text-zinc-400 font-semibold">Escola de Mentorias</span>
+            <span class="h-[1px] w-10 gold-line opacity-60"></span>
+        </div>
+
+        <!-- Main title -->
+        <h1 class="hero-title-main text-[clamp(3rem,6vw,5.5rem)] font-extrabold tracking-tighter leading-[1.05] mb-6">
+            <span class="silver-gradient">MAINDSET</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg md:text-xl text-zinc-300 font-light max-w-2xl mx-auto mb-4 leading-relaxed">
+            A <span class="gold-gradient font-bold">IA</span> potencializa empresas.
+            <span class="silver-gradient font-semibold">Lideres que a dominam, potencializam mercados.</span>
+        </p>
+        <p class="text-sm text-zinc-500 max-w-xl mx-auto mb-10 leading-relaxed">
+            Uma serie de mentorias desenhada para colocar voce no grupo de liderancas
+            que estao definindo o jogo dos proximos anos.
+        </p>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#mentores" class="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold tracking-wide uppercase text-zinc-900 rounded-none" style="background: #D4AF37;">
+                Conheca os Mentores
+                <i class="fas fa-arrow-down text-xs"></i>
+            </a>
+            <a href="#contato" class="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold tracking-wide uppercase text-zinc-300 rounded-none border border-zinc-700 hover:border-zinc-500 transition-colors">
+                Inscreva-se
+            </a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mt-16 pt-10 border-t border-zinc-800/50">
+            <div class="text-center">
+                <div class="text-2xl font-bold gold-gradient">28+</div>
+                <div class="text-[0.65rem] tracking-[0.2em] uppercase text-zinc-500 mt-1">Anos combinados</div>
+            </div>
+            <div class="text-center">
+                <div class="text-2xl font-bold gold-gradient">17</div>
+                <div class="text-[0.65rem] tracking-[0.2em] uppercase text-zinc-500 mt-1">Setores atendidos</div>
+            </div>
+            <div class="text-center">
+                <div class="text-2xl font-bold gold-gradient">100+</div>
+                <div class="text-[0.65rem] tracking-[0.2em] uppercase text-zinc-500 mt-1">Projetos enterprise</div>
+            </div>
+            <div class="text-center">
+                <div class="text-2xl font-bold gold-gradient">2</div>
+                <div class="text-[0.65rem] tracking-[0.2em] uppercase text-zinc-500 mt-1">Continentes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- POSICIONAMENTO -->
+<!-- ================================================================== -->
+<section class="section-padding relative" id="posicionamento">
+    <div class="absolute inset-0 subtle-grid opacity-[0.12]"></div>
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+            <div class="section-tag justify-center">
+                <span class="dot"></span>
+                Por que a MAINDSET existe
+            </div>
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold leading-tight text-balance silver-gradient">
+                A vantagem competitiva da proxima decada nao pertence a quem implementa IA mais rapido.
+            </h2>
+            <p class="text-zinc-300 text-lg mt-4 font-semibold gold-gradient text-balance">
+                Pertence a quem direciona com mais clareza.
+            </p>
+            <div class="h-[1px] gold-line opacity-30 my-8"></div>
+            <p class="text-zinc-400 text-sm leading-relaxed max-w-2xl mx-auto">
+                Times tecnicos sabem treinar modelos. Mas e o lider fluente no tema que define
+                onde a IA gera valor, quais problemas merecem investimento, quando escalar e quando recuar.
+                Sem essa direcao, a melhor tecnologia vira desperdicio caro. Com ela, a empresa muda de patamar.
+            </p>
+            <p class="text-zinc-300 text-sm font-semibold mt-6">
+                As liderancas que estao se posicionando agora vao definir o jogo dos proximos anos.
+                Esta serie de mentorias foi desenhada pra colocar voce nesse grupo.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROGRAMA: 5 MODULOS -->
+<!-- ================================================================== -->
+<section class="section-padding relative" id="programa" style="background: #080808;">
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <div class="section-tag justify-center">
+                <span class="dot"></span>
+                O programa
+            </div>
+            <h2 class="section-title silver-gradient text-balance">
+                Cinco mentorias para formar<br>o lider que direciona IA
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Modulo 1 -->
+            <div class="glass-card p-8 group hover:border-[rgba(212,175,55,0.2)] transition-all duration-300">
+                <div class="flex items-start gap-5">
+                    <div class="text-4xl font-extrabold gold-gradient shrink-0 leading-none">01</div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Fluencia em IA: O Repertorio que Transforma Lideres em Direcionadores</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Dominar o vocabulario, os conceitos e os criterios certos muda completamente o seu lugar na mesa.
+                            Voce deixa de validar decisoes tecnicas e passa a fazer as perguntas que orientam toda a estrategia.
+                            Em poucas semanas, conversa de igual pra igual com qualquer CTO, fornecedor ou conselheiro,
+                            e identifica oportunidades que o time tecnico, sozinho, nao enxergaria.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo 2 -->
+            <div class="glass-card p-8 group hover:border-[rgba(212,175,55,0.2)] transition-all duration-300">
+                <div class="flex items-start gap-5">
+                    <div class="text-4xl font-extrabold gold-gradient shrink-0 leading-none">02</div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">IA na Sala da Diretoria: Lidere a Pauta que Todo Conselho Esta Cobrando</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Conselhos e investidores ja estao perguntando sobre estrategia de IA. Esta mentoria te entrega
+                            uma agenda estruturada para liderar essa conversa com autoridade. Voce sai com framework de
+                            priorizacao, roadmap defensavel e um pitch que posiciona voce como o protagonista da
+                            transformacao, nao como espectador dela.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo 3 -->
+            <div class="glass-card p-8 group hover:border-[rgba(212,175,55,0.2)] transition-all duration-300">
+                <div class="flex items-start gap-5">
+                    <div class="text-4xl font-extrabold gold-gradient shrink-0 leading-none">03</div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">O Filtro Executivo: Decisoes de IA com Criterio, Velocidade e Confianca</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Aprovar ou recusar uma proposta de IA deveria ser uma decisao clara, nao uma aposta.
+                            Esta mentoria entrega o filtro objetivo que separa projetos transformadores de vaidades
+                            tecnologicas: ROI realista, due diligence tecnica descomplicada e os criterios que lideres
+                            de empresas que ja sairam na frente usam todos os dias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo 4 -->
+            <div class="glass-card p-8 group hover:border-[rgba(212,175,55,0.2)] transition-all duration-300">
+                <div class="flex items-start gap-5">
+                    <div class="text-4xl font-extrabold gold-gradient shrink-0 leading-none">04</div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Governanca de IA: O Diferencial Reputacional que o Mercado Ja Esta Premiando</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Empresas que estruturam governanca de IA agora estao sendo recompensadas com confianca
+                            de clientes, investidores e reguladores. Esta mentoria forma o lider capaz de transformar
+                            LGPD, AI Act e auditoria de modelos em ativo estrategico, nao em obrigacao. Conteudo
+                            pensado para quem assina embaixo das decisoes e quer assinar com tranquilidade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo 5 -->
+            <div class="glass-card p-8 group hover:border-[rgba(212,175,55,0.2)] transition-all duration-300">
+                <div class="flex items-start gap-5">
+                    <div class="text-4xl font-extrabold gold-gradient shrink-0 leading-none">05</div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Da Visao a Execucao: Construa o Plano de IA que Coloca Sua Empresa a Frente</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            A mentoria mais aplicada da serie. Voce sai com um plano de adocao de IA especifico
+                            para a sua empresa, validado, sequenciado e pronto para ser executado nos proximos
+                            90 dias. Nao e teoria, e o documento que vai pra proxima reuniao de diretoria com
+                            seu nome assinado embaixo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- MENTORES -->
+<!-- ================================================================== -->
+<section class="section-padding relative" id="mentores" style="background: #080808;">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <div class="section-tag justify-center">
+                <span class="dot"></span>
+                Quem vai te conduzir
+            </div>
+            <h2 class="section-title silver-gradient text-balance">
+                Dois perfis, uma formacao completa
+            </h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-sm leading-relaxed mt-3">
+                Uma lider de governanca que atua na Europa e um especialista com visao empreendedora
+                que constroi no Brasil. Perspectivas complementares para um mercado sem fronteiras.
+            </p>
+        </div>
+
+        <!-- Mentor Cards Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mentor-grid">
+
+            <!-- ======== CHRISTIANE ======== -->
+            <div class="mentor-card overflow-hidden">
+                <div class="mentor-img-wrap h-64 bg-zinc-900 flex items-center justify-center relative">
+                    <div class="absolute inset-0 subtle-grid opacity-[0.15]"></div>
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="text-[9px] tracking-[0.25em] uppercase bg-zinc-800/80 text-zinc-300 px-3 py-1.5 font-semibold">Head de IA & Governanca</span>
+                    </div>
+                    <img src="../carrossel-maindset-slides/slide_01.png" alt="Christiane Eneas Silva" class="absolute inset-0 z-0 opacity-20">
+                    <div class="relative z-10 text-center p-8">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-zinc-800/60 border border-zinc-700 flex items-center justify-center mb-4">
+                            <span class="text-3xl font-extrabold gold-gradient">CES</span>
+                        </div>
+                        <h3 class="text-xl font-bold silver-gradient">Christiane Eneas Silva</h3>
+                        <p class="text-xs text-zinc-400 mt-1 tracking-wide">Head de IA e Governanca de Dados</p>
+                        <p class="text-xs text-zinc-500 mt-1">Capgemini, Portugal</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <!-- Credibilidade -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">13+ anos em dados</span>
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">8 setores</span>
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">Europa + Brasil</span>
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                        Especialista em governanca de dados corporativos e arquitetura enterprise,
+                        com atuacao em empresas globais como Capgemini, Bayer e Prudential.
+                        Implementou frameworks DAMA e PPDM em contextos regulados (LGPD/GDPR),
+                        liderou programas de data quality e modernizacao de data lakes na AWS e Azure.
+                    </p>
+
+                    <!-- Destaques -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Governanca corporativa com DAMA-DMBOK em multinacionais</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Arquitetura de dados: Data Lake, Data Mesh, Data Vault 2.0</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Primeira implementacao PPDM na America Latina (Oil & Gas)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Compliance regulatorio: GDPR, LGPD, privacidade by-design</span>
+                        </div>
+                    </div>
+
+                    <!-- Contato -->
+                    <div class="border-t border-zinc-800/50 pt-5 flex flex-wrap gap-3">
+                        <a href="https://linkedin.com/in/christianeeneassilva" target="_blank" rel="noopener" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="text-xs">LinkedIn</span>
+                        </a>
+                        <a href="mailto:christiane.eneas.silva@gmail.com" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fas fa-envelope"></i>
+                            <span class="text-xs">Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======== WALTER ======== -->
+            <div class="mentor-card overflow-hidden">
+                <div class="mentor-img-wrap h-64 bg-zinc-900 flex items-center justify-center relative">
+                    <div class="absolute inset-0 subtle-grid opacity-[0.15]"></div>
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="text-[9px] tracking-[0.25em] uppercase bg-zinc-800/80 text-zinc-300 px-3 py-1.5 font-semibold">Founder & AI Engineer</span>
+                    </div>
+                    <img src="../carrossel-maindset-slides/slide_01.png" alt="Walter Jose Horning Junior" class="absolute inset-0 z-0 opacity-20">
+                    <div class="relative z-10 text-center p-8">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-zinc-800/60 border border-zinc-700 flex items-center justify-center mb-4">
+                            <span class="text-3xl font-extrabold gold-gradient">WJ</span>
+                        </div>
+                        <h3 class="text-xl font-bold silver-gradient">Walter Horning Junior</h3>
+                        <p class="text-xs text-zinc-400 mt-1 tracking-wide">Founder & AI Engineer</p>
+                        <p class="text-xs text-zinc-500 mt-1">Facilia, Brasil</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <!-- Credibilidade -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">15+ anos em TI</span>
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">8+ anos em IA</span>
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">50+ projetos</span>
+                        <span class="text-[10px] tracking-[0.15em] uppercase text-zinc-300 bg-zinc-800/50 px-3 py-1 font-medium">9 setores</span>
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                        Cientista de dados senior e engenheiro de IA com experiencia end-to-end:
+                        da definicao do problema ao modelo em producao. Especializado em Machine Learning,
+                        Generative AI, NLP e Data Engineering. Fundador da Facilia,
+                        autor do livro <em>"Python para Analise de Dados: Do Zero ao Insight"</em>.
+                    </p>
+
+                    <!-- Destaques -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Pipeline acelerado em 6.000x com engenharia de dados</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Reducao de 13% em custos operacionais com ML aplicado</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Aumento de 33% em acuracia de previsoes em producao</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle gold-text text-sm mt-0.5"></i>
+                            <span class="text-sm text-zinc-300">Setores: logistica, fintech, saude, seguro, varejo, banco, e-commerce</span>
+                        </div>
+                    </div>
+
+                    <!-- Contato -->
+                    <div class="border-t border-zinc-800/50 pt-5 flex flex-wrap gap-3">
+                        <a href="https://www.linkedin.com/in/walter-horning-junior" target="_blank" rel="noopener" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="text-xs">LinkedIn</span>
+                        </a>
+                        <a href="mailto:horning.walter@gmail.com" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fas fa-envelope"></i>
+                            <span class="text-xs">Email</span>
+                        </a>
+                        <a href="https://wa.me/5541998497081" target="_blank" rel="noopener" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="text-xs">WhatsApp</span>
+                        </a>
+                        <a href="https://facilia.ia.br" target="_blank" rel="noopener" class="contact-item flex-1 min-w-[140px] rounded-none">
+                            <i class="fas fa-globe"></i>
+                            <span class="text-xs">Facilia</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SINERGIA -->
+<!-- ================================================================== -->
+<section class="section-padding relative" id="sinergia">
+    <div class="absolute inset-0 subtle-grid opacity-[0.12]"></div>
+    <div class="absolute -top-[10%] right-[-5%] w-[40%] h-[40%] rounded-full blur-[120px] z-0" style="background: radial-gradient(circle, rgba(212, 175, 55, 0.10) 0%, transparent 70%);"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+            <div class="section-tag justify-center">
+                <span class="dot"></span>
+                O diferencial MAINDSET
+            </div>
+            <h2 class="section-title silver-gradient text-balance">
+                Lideranca + Especialista.<br>Muito alem do basico.
+            </h2>
+        </div>
+
+        <div class="synergy-card mb-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="glow-dot"></div>
+                        <h3 class="text-lg font-bold">Visao de lideranca enterprise</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Christiane traz a perspectiva de quem decide sobre IA em conselhos de multinacionais europeias.
+                        Sabe o que a governanca exige, o que o compliance impoe e o que o negocio precisa.
+                        Conexao direta com a realidade de empresas globais.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="glow-dot"></div>
+                        <h3 class="text-lg font-bold">Execucao com mentalidade empreendedora</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Walter traz a pratica de quem constroi, implementa e coloca em producao.
+                        Founder de startup, autor, engenheiro. Sabe o que funciona no chao de fabrica
+                        e como transformar ideias em resultado mensuravel.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass-card p-6">
+                <p class="text-sm text-zinc-200 leading-relaxed">
+                    <span class="gold-gradient font-bold">Nao e curso de ferramenta.</span>
+                    O mercado ja tem conteudo tatico sobrando. O que falta e pensamento estrategico
+                    apoiado em experiencia real de quem vive o jogo enterprise.
+                </p>
+            </div>
+            <div class="glass-card p-6">
+                <p class="text-sm text-zinc-200 leading-relaxed">
+                    <span class="gold-gradient font-bold">Nao e consultoria generica.</span>
+                    E mentoria com metodo, baseada em casos reais de empresas que estao fazendo
+                    IA acontecer agora, nos dois lados do Atlantico.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- METRICS BANNER -->
+<!-- ================================================================== -->
+<section style="background: #0A0A0A; padding: 60px 20px;">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="h-[1px] gold-line opacity-30 mb-12"></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="stat-block">
+                <div class="stat-number gold-gradient">28+</div>
+                <div class="stat-label">Anos de experiencia combinados</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number gold-gradient">17</div>
+                <div class="stat-label">Setores de atuacao</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number gold-gradient">100+</div>
+                <div class="stat-label">Projetos entregues</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number gold-gradient">2</div>
+                <div class="stat-label">Perspectivas de mercado Europa + Brasil</div>
+            </div>
+        </div>
+        <div class="h-[1px] gold-line opacity-30 mt-12"></div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CONTATO -->
+<!-- ================================================================== -->
+<section class="section-padding relative" id="contato">
+    <div class="absolute inset-0 subtle-grid opacity-[0.12]"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <div class="section-tag justify-center">
+                <span class="dot"></span>
+                Fale com a gente
+            </div>
+            <h2 class="section-title silver-gradient text-balance">
+                O primeiro passo e uma conversa.
+            </h2>
+            <p class="text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed mt-3">
+                Se voce lidera uma area, um projeto ou uma empresa e quer dominar IA
+                para decidir com mais clareza, fale diretamente com os mentores.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-8">
+            <!-- FORM (3 cols) -->
+            <div class="md:col-span-3">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="glass-card p-8">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="Contato MAINDSET via site">
+                    <input type="hidden" name="from_name" value="MAINDSET Site">
+                    <input type="hidden" name="replyto" id="replyto" value="">
+                    <input type="checkbox" name="botcheck" style="display:none">
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-5">
+                        <div>
+                            <label for="name" class="text-[10px] tracking-[0.2em] uppercase text-zinc-400 block mb-2">Nome *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-zinc-900/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors"
+                                placeholder="Seu nome completo">
+                        </div>
+                        <div>
+                            <label for="email" class="text-[10px] tracking-[0.2em] uppercase text-zinc-400 block mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-zinc-900/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors"
+                                placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-5">
+                        <div>
+                            <label for="company" class="text-[10px] tracking-[0.2em] uppercase text-zinc-400 block mb-2">Empresa</label>
+                            <input type="text" id="company" name="company"
+                                class="w-full bg-zinc-900/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors"
+                                placeholder="Sua empresa">
+                        </div>
+                        <div>
+                            <label for="role" class="text-[10px] tracking-[0.2em] uppercase text-zinc-400 block mb-2">Cargo</label>
+                            <input type="text" id="role" name="role"
+                                class="w-full bg-zinc-900/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors"
+                                placeholder="Seu cargo">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="message" class="text-[10px] tracking-[0.2em] uppercase text-zinc-400 block mb-2">Mensagem *</label>
+                        <textarea id="message" name="message" rows="5" required
+                            class="w-full bg-zinc-900/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors resize-none"
+                            placeholder="Conte-nos sobre seu desafio com IA..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-3.5 text-sm font-semibold tracking-wide uppercase text-zinc-900 transition-all duration-300 hover:opacity-90"
+                        style="background: #D4AF37;">
+                        Enviar mensagem
+                        <i class="fas fa-paper-plane ml-2 text-xs"></i>
+                    </button>
+
+                    <div id="formMessage" class="text-center mt-4 text-sm hidden"></div>
+                </form>
+            </div>
+
+            <!-- CONTACTS SIDEBAR (2 cols) -->
+            <div class="md:col-span-2 space-y-6">
+                <div class="glass-card p-6">
+                    <h3 class="text-sm font-bold silver-gradient mb-4">Christiane Eneas Silva</h3>
+                    <div class="space-y-2.5">
+                        <a href="mailto:christiane.eneas.cl2v@gmail.com" class="contact-item rounded-none text-xs">
+                            <i class="fas fa-envelope"></i>
+                            <span>christiane.eneas.cl2v@gmail.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/christianeeneassilva" target="_blank" rel="noopener" class="contact-item rounded-none text-xs">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <div class="contact-item rounded-none text-xs">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cascais, Lisboa, Portugal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6">
+                    <h3 class="text-sm font-bold silver-gradient mb-4">Walter Horning Junior</h3>
+                    <div class="space-y-2.5">
+                        <a href="mailto:horning.walter@gmail.com" class="contact-item rounded-none text-xs">
+                            <i class="fas fa-envelope"></i>
+                            <span>horning.walter@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/walter-horning-junior" target="_blank" rel="noopener" class="contact-item rounded-none text-xs">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://wa.me/5541998497081" target="_blank" rel="noopener" class="contact-item rounded-none text-xs">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://walterhorning.com.br" target="_blank" rel="noopener" class="contact-item rounded-none text-xs">
+                            <i class="fas fa-user"></i>
+                            <span>walterhorning.com.br</span>
+                        </a>
+                        <a href="https://facilia.ia.br" target="_blank" rel="noopener" class="contact-item rounded-none text-xs">
+                            <i class="fas fa-building"></i>
+                            <span>facilia.ia.br</span>
+                        </a>
+                        <div class="contact-item rounded-none text-xs">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Curitiba, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Web3Forms multi-recipient + form handler -->
+<script>
+(function() {
+    var form = document.getElementById('contactForm');
+    var msg = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var btn = form.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Enviando...';
+        btn.style.opacity = '0.7';
+        btn.style.pointerEvents = 'none';
+
+        var formData = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.success) {
+                msg.className = 'text-center mt-4 text-sm';
+                msg.innerHTML = '<span style="color:#D4AF37;">Mensagem enviada. Entraremos em contato em breve.</span>';
+                msg.classList.remove('hidden');
+                form.reset();
+            } else {
+                msg.className = 'text-center mt-4 text-sm';
+                msg.innerHTML = '<span style="color:#e53e3e;">Erro ao enviar. Tente novamente ou envie diretamente para os emails acima.</span>';
+                msg.classList.remove('hidden');
+            }
+            btn.innerHTML = originalText;
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        })
+        .catch(function() {
+            msg.className = 'text-center mt-4 text-sm';
+            msg.innerHTML = '<span style="color:#e53e3e;">Erro de rede. Tente novamente ou envie diretamente para os emails acima.</span>';
+            msg.classList.remove('hidden');
+            btn.innerHTML = originalText;
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        });
+    });
+})();
+</script>
+
+<!-- ================================================================== -->
+<!-- FOOTER -->
+<!-- ================================================================== -->
+<footer style="background: #0A0A0A; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <!-- Logo -->
+        <div class="mb-6">
+            <span class="text-2xl font-extrabold tracking-tighter silver-gradient">MAINDSET</span>
+        </div>
+
+        <p class="text-xs text-zinc-500 mb-8 max-w-md mx-auto leading-relaxed">
+            Escola de mentorias em lideranca estrategica de IA.<br>
+            Formando lideres que dominam a tecnologia que esta redefinindo mercados.
+        </p>
+
+        <!-- Nav -->
+        <div class="flex flex-wrap justify-center gap-6 mb-8 text-xs text-zinc-400 uppercase tracking-[0.15em] font-medium">
+            <a href="#home" class="hover:text-white transition-colors">Home</a>
+            <a href="#posicionamento" class="hover:text-white transition-colors">Posicionamento</a>
+            <a href="#programa" class="hover:text-white transition-colors">Programa</a>
+            <a href="#mentores" class="hover:text-white transition-colors">Mentores</a>
+            <a href="#sinergia" class="hover:text-white transition-colors">Diferencial</a>
+            <a href="#contato" class="hover:text-white transition-colors">Contato</a>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-8 text-[10px] text-zinc-500">
+            <a href="https://walterhorning.com.br" target="_blank" rel="noopener" class="hover:text-zinc-300 transition-colors">walterhorning.com.br</a>
+            <span class="text-zinc-700">|</span>
+            <a href="https://facilia.ia.br" target="_blank" rel="noopener" class="hover:text-zinc-300 transition-colors">Facilia</a>
+            <span class="text-zinc-700">|</span>
+            <span>maindset.ia.br</span>
+        </div>
+
+        <!-- Gold line -->
+        <div class="h-[1px] gold-line opacity-20 mb-6"></div>
+
+        <p class="text-[10px] text-zinc-600">
+            &copy; 2026 MAINDSET. maindset.ia.br
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
