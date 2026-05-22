@@ -254,10 +254,43 @@
             height: 100%;
             width: auto;
             display: block;
+            filter: contrast(1.05) saturate(1.12) brightness(1.04);
         }
         .leg-1 { left: 28.7%; width: 13.2%; }
         .leg-2 { left: 46.9%; width: 9.0%; }
         .leg-3 { left: 61.9%; width: 8.7%; }
+
+        /* Brilho sutil e continuo nas pernas prata (apos a animacao narrativa) */
+        .leg-1 img,
+        .leg-3 img {
+            animation: silver-breathe 6s ease-in-out 7s infinite;
+            will-change: filter;
+        }
+        @keyframes silver-breathe {
+            0%, 100% {
+                filter: contrast(1.05) saturate(1.12) brightness(1.04)
+                        drop-shadow(0 0 6px rgba(200, 200, 200, 0.08));
+            }
+            50% {
+                filter: contrast(1.08) saturate(1.18) brightness(1.10)
+                        drop-shadow(0 0 14px rgba(220, 220, 220, 0.22));
+            }
+        }
+        /* Brilho dourado mais intenso na perna 2, ja respira via halo mas reforca o metal */
+        .leg-2 img {
+            animation: gold-breathe 6s ease-in-out 5.6s infinite;
+            will-change: filter;
+        }
+        @keyframes gold-breathe {
+            0%, 100% {
+                filter: contrast(1.06) saturate(1.18) brightness(1.05)
+                        drop-shadow(0 0 8px rgba(244, 210, 122, 0.18));
+            }
+            50% {
+                filter: contrast(1.10) saturate(1.28) brightness(1.12)
+                        drop-shadow(0 0 18px rgba(244, 210, 122, 0.45));
+            }
+        }
 
         /* Halo discreto atras do pilar dourado (2 camadas, business)
            Dimensoes em % do container .logo-anim para escalar com a logo */
@@ -310,12 +343,23 @@
             height: auto;
             opacity: 0;
             transform: translateY(6px);
-            animation: wordmark-reveal 1.0s ease-out 9.2s forwards;
-            will-change: opacity, transform;
+            animation:
+                wordmark-reveal 1.0s ease-out 9.2s forwards,
+                wordmark-breathe 6s ease-in-out 10.2s infinite;
+            will-change: opacity, transform, filter;
         }
         @keyframes wordmark-reveal {
             0%   { opacity: 0; transform: translateY(6px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes wordmark-breathe {
+            0%, 100% {
+                filter: contrast(1.0) saturate(1.0) brightness(1.0)
+                        drop-shadow(0 0 4px rgba(220, 220, 220, 0.06));
+            }
+            50% {
+                filter: contrast(1.05) saturate(1.12) brightness(1.06)
+                        drop-shadow(0 0 12px rgba(244, 210, 122, 0.18));
         }
 
         /* Estados iniciais antes da animacao */
