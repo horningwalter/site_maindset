@@ -298,6 +298,75 @@
             height: 1px; width: 120px; margin: 36px auto;
         }
 
+        /* ===== FRAMEWORKS PROPRIETARIOS ===== */
+        .frameworks { position: relative; }
+        .frameworks-box {
+            padding: 64px 56px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 60%, rgba(0,0,0,0.4) 100%);
+            border: 1px solid var(--gold-line);
+            position: relative;
+            text-align: center;
+        }
+        .frameworks-box::before,
+        .frameworks-box::after {
+            content: ''; position: absolute; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+        }
+        .frameworks-box::before { top: 0; }
+        .frameworks-box::after { bottom: 0; }
+        .frameworks-h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800; margin: 18px 0 22px;
+            line-height: 1.2;
+        }
+        .frameworks-h2 span { display: block; }
+        .frameworks-lead {
+            color: var(--text-2); font-size: 1rem; line-height: 1.7;
+            max-width: 680px; margin: 0 auto 44px;
+        }
+        .frameworks-lead strong { color: #fff; font-weight: 700; }
+        .frameworks-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px; text-align: left;
+            margin-bottom: 36px;
+        }
+        .framework-pill {
+            display: grid; grid-template-columns: auto 1fr; gap: 18px;
+            padding: 22px 24px;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid var(--line);
+            align-items: flex-start;
+            transition: border-color .3s ease;
+        }
+        .framework-pill:hover { border-color: var(--gold-line); }
+        .framework-pill > i {
+            font-size: 1.25rem;
+            color: var(--gold-500);
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid var(--gold-line);
+            flex-shrink: 0;
+        }
+        .framework-pill h4 {
+            font-size: .95rem; font-weight: 700; color: #fff;
+            margin-bottom: 6px; letter-spacing: -0.01em;
+        }
+        .framework-pill p {
+            font-size: .8125rem; color: var(--text-3); line-height: 1.55;
+        }
+        .frameworks-foot {
+            font-size: .95rem; color: var(--text-2); line-height: 1.65;
+            max-width: 620px; margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+        @media (max-width: 720px) {
+            .frameworks-box { padding: 40px 24px; }
+            .frameworks-grid { grid-template-columns: 1fr; gap: 12px; }
+            .framework-pill { padding: 18px 18px; gap: 14px; }
+        }
+
         /* ===== MENTORIAS (CORE) ===== */
         .mentorias-header {
             text-align: center; margin-bottom: 72px;
@@ -777,6 +846,61 @@
     </div>
 </section>
 
+<!-- ============================== FRAMEWORKS PROPRIETARIOS ============================== -->
+<section class="section frameworks" aria-labelledby="frameworks-title">
+    <div class="grid-subtle" style="position:absolute;inset:0;opacity:0.08;"></div>
+    <div class="glow-gold" style="position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:50%;height:50%;border-radius:50%;filter:blur(140px);"></div>
+
+    <div class="container-narrow">
+        <div class="frameworks-box">
+            <span class="eyebrow">O que você leva em mãos</span>
+            <h2 id="frameworks-title" class="frameworks-h2">
+                <span class="text-silver">Metodologias e frameworks</span>
+                <span class="text-gold">autorais dos mentores.</span>
+            </h2>
+            <p class="frameworks-lead">
+                Você não recebe slides genéricos nem teoria reciclada. Cada mentoria entrega <strong>frameworks proprietários</strong>, construídos pelos mentores em mais de uma década de prática real em empresas globais. Templates, checklists, matrizes de decisão e roteiros, prontos para aplicar na segunda-feira de manhã.
+            </p>
+
+            <div class="frameworks-grid">
+                <div class="framework-pill">
+                    <i class="fas fa-file-lines" aria-hidden="true"></i>
+                    <div>
+                        <h4>Templates Aplicáveis</h4>
+                        <p>Documentos prontos para roadmap de IA, pitch para conselho e plano de adoção de 90 dias.</p>
+                    </div>
+                </div>
+                <div class="framework-pill">
+                    <i class="fas fa-list-check" aria-hidden="true"></i>
+                    <div>
+                        <h4>Checklists de Decisão</h4>
+                        <p>Filtros objetivos para aprovar ou recusar propostas de IA com critério executivo.</p>
+                    </div>
+                </div>
+                <div class="framework-pill">
+                    <i class="fas fa-table-list" aria-hidden="true"></i>
+                    <div>
+                        <h4>Matrizes Proprietárias</h4>
+                        <p>Frameworks de priorização, governança e ROI testados em projetos enterprise reais.</p>
+                    </div>
+                </div>
+                <div class="framework-pill">
+                    <i class="fas fa-bullseye" aria-hidden="true"></i>
+                    <div>
+                        <h4>Base Sólida</h4>
+                        <p>Construídos a partir de tendências e práticas atuais do mercado, refinados em projetos reais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="frameworks-foot">
+                <strong class="text-gold">Sem teoria descolada.</strong>
+                Só o que os mentores aplicam, todos os dias, em conselhos e salas de diretoria nos dois lados do Atlântico.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- ============================== MENTORIAS (CORE) ============================== -->
 <section class="section" id="mentorias" aria-labelledby="mentorias-title">
     <div class="grid-subtle" style="position:absolute;inset:0;opacity:0.1;"></div>
@@ -965,6 +1089,9 @@
                         <a href="mailto:christiane.eneas.cl2v@gmail.com" class="mentor-link" aria-label="Email de Christiane">
                             <i class="fas fa-envelope" aria-hidden="true"></i> Email
                         </a>
+                        <a href="https://wa.me/554188098181" target="_blank" rel="noopener" class="mentor-link" aria-label="WhatsApp de Christiane">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                        </a>
                     </div>
                 </div>
             </article>
@@ -977,7 +1104,7 @@
                 </div>
                 <div class="mentor-body">
                     <p class="mentor-role">Founder & AI Engineer</p>
-                    <h3 class="mentor-name">Walter Horning Junior</h3>
+                    <h3 class="mentor-name">Walter José Horning Junior</h3>
                     <div class="mentor-chips">
                         <span>15+ anos em TI</span>
                         <span>8+ anos em IA</span>
@@ -989,7 +1116,10 @@
                         Founder da <strong>Facilia</strong>, consultoria de engenharia de IA. Senior Data Scientist e AI Engineer formado em Ciência da Computação pela <strong>UFPR</strong>, com atuação end-to-end: da definição do problema ao modelo em produção. Especializado em Machine Learning, Generative AI, LLMs, RAG, NLP e Data Engineering, com passagens por <strong>Prudential, ALLOS, Swap, Olist</strong> e projetos atuais na <strong>Natura</strong> e em saúde digital.
                     </p>
                     <p class="mentor-bio">
-                        Instrutor de Python para análise de dados e autor do livro <em>"Python para Análise de Dados, Do Zero ao Insight"</em>. Pesquisa a interseção entre os <strong>processos biológicos da cognição humana</strong> e a inteligência artificial, com trabalho acadêmico em programação genética, algoritmos bio-inspirados e modelagem cognitiva aplicada a sistemas de IA.
+                        Instrutor de Python para análise de dados e autor do livro <em>"Python para Análise de Dados, Do Zero ao Insight"</em>.
+                    </p>
+                    <p class="mentor-bio">
+                        Pesquisador independente na interseção entre os <strong>processos biológicos da cognição humana</strong> e a <strong>inteligência artificial</strong>, com trabalho acadêmico em programação genética e algoritmos bio-inspirados.
                     </p>
                     <div class="mentor-bullets">
                         <div><i class="fas fa-check" aria-hidden="true"></i><span>Pipeline acelerado em 6.000x com engenharia de dados</span></div>
@@ -1012,7 +1142,7 @@
                             <i class="fas fa-building" aria-hidden="true"></i> Facilia
                         </a>
                         <a href="https://walterhorning.com.br" target="_blank" rel="noopener" class="mentor-link" aria-label="Site pessoal do Walter">
-                            <i class="fas fa-globe" aria-hidden="true"></i> walterhorning.com.br
+                            <i class="fas fa-globe" aria-hidden="true"></i> Site
                         </a>
                     </div>
                 </div>
@@ -1047,7 +1177,7 @@
                 <div class="diferencial-item">
                     <h3>Execução com mentalidade empreendedora</h3>
                     <p>
-                        Walter traz a prática de quem constrói, implementa e coloca em produção. Founder de startup, autor, engenheiro. Sabe o que funciona no chão de fábrica e como transformar ideias em resultado mensurável.
+                        Walter traz a prática de quem constrói, implementa e coloca em produção. Founder, autor, engenheiro e pesquisador. Sabe como transformar ideias em resultado mensurável.
                     </p>
                 </div>
             </div>
@@ -1153,13 +1283,16 @@
                     <a href="https://linkedin.com/in/christianeeneassilva" target="_blank" rel="noopener" class="contact-link">
                         <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
                     </a>
+                    <a href="https://wa.me/554188098181" target="_blank" rel="noopener" class="contact-link">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </a>
                     <div class="contact-link" style="cursor:default;">
                         <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Cascais, Lisboa, Portugal
                     </div>
                 </div>
 
                 <div class="glass side-card">
-                    <h3 class="text-silver">Walter Horning Junior</h3>
+                    <h3 class="text-silver">Walter José Horning Junior</h3>
                     <a href="mailto:horning.walter@gmail.com" class="contact-link">
                         <i class="fas fa-envelope" aria-hidden="true"></i> horning.walter@gmail.com
                     </a>
@@ -1175,6 +1308,9 @@
                     <a href="https://facilia.ia.br" target="_blank" rel="noopener" class="contact-link">
                         <i class="fas fa-building" aria-hidden="true"></i> facilia.ia.br
                     </a>
+                    <div class="contact-link" style="cursor:default;">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Curitiba, Paraná, Brasil
+                    </div>
                 </div>
             </div>
         </div>
@@ -1194,13 +1330,6 @@
         <a href="#mentores">Mentores</a>
         <a href="#metodo">Método</a>
         <a href="#reservar">Reservar Vaga</a>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:24px;font-size:.6875rem;color:var(--text-4);">
-        <a href="https://walterhorning.com.br" target="_blank" rel="noopener" style="text-decoration:none;">walterhorning.com.br</a>
-        <span style="color:#333;">|</span>
-        <a href="https://facilia.ia.br" target="_blank" rel="noopener" style="text-decoration:none;">Facilia</a>
-        <span style="color:#333;">|</span>
-        <span>maindset.ia.br</span>
     </div>
     <div class="gold-line" style="height:1px;width:180px;margin:0 auto;" role="separator"></div>
     <p class="footer-meta">&copy; 2026 <span class="brand">M<span class="ai">AI</span>NDSET</span>, todos os direitos reservados.</p>
