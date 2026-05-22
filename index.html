@@ -81,6 +81,12 @@
             background-clip: text; color: transparent;
             font-weight: inherit;
         }
+        /* Em fontes pequenas o gradient some, usar cor solida */
+        .brand--solid .ai {
+            background: none;
+            -webkit-text-fill-color: var(--gold-500);
+            color: var(--gold-500);
+        }
 
         /* ===== DECORATIVE ===== */
         .grid-subtle {
@@ -725,7 +731,11 @@
             border-top: 1px solid var(--line);
             text-align: center;
         }
-        footer img { margin: 0 auto 20px; width: 120px; opacity: 0.7; }
+        footer img {
+            margin: 0 auto 20px;
+            width: 120px;
+            filter: contrast(1.08) saturate(1.18) brightness(1.06);
+        }
         footer .footer-tagline {
             font-size: .8125rem; color: var(--text-3);
             max-width: 480px; margin: 0 auto 28px;
@@ -1398,7 +1408,7 @@
         <a href="#reservar">Reservar Vaga</a>
     </div>
     <div class="gold-line" style="height:1px;width:180px;margin:0 auto;" role="separator"></div>
-    <p class="footer-meta">&copy; 2026 <span class="brand">M<span class="ai">AI</span>NDSET</span>, todos os direitos reservados.</p>
+    <p class="footer-meta">&copy; 2026 <span class="brand brand--solid">M<span class="ai">AI</span>NDSET</span>, todos os direitos reservados.</p>
 </footer>
 
 <!-- ============================== STICKY CTA MOBILE ============================== -->
