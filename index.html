@@ -487,14 +487,28 @@
         .mentor-photo-wrap {
             position: relative; overflow: hidden;
         }
+        .mentor-photo-wrap {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0f0f0f 0%, #060606 100%);
+        }
+        .mentor-photo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 24px 0;
+            position: relative;
+        }
         .mentor-photo {
             width: 100%;
+            max-width: 260px;
             aspect-ratio: 4 / 5;
             height: auto;
             object-fit: cover;
             object-position: center 25%;
             display: block;
             transition: transform .6s ease;
+            filter: contrast(1.05) saturate(0.85) brightness(0.97);
         }
         .mentor-photo--christiane { object-position: center 35%; }
         .mentor-photo--walter { object-position: center 18%; }
@@ -720,7 +734,7 @@
             }
             .mentoria-cta { flex: 1; min-height: 48px; }
             .mentores-grid { grid-template-columns: 1fr; gap: 24px; }
-            .mentor-photo { aspect-ratio: 4 / 5; }
+            .mentor-photo { aspect-ratio: 4 / 5; max-width: 220px; }
             .diferencial-box { padding: 36px 28px; }
             .diferencial-grid { grid-template-columns: 1fr; gap: 28px; }
             .diferencial-tags { grid-template-columns: 1fr; }
@@ -1099,7 +1113,7 @@
             <!-- WALTER -->
             <article class="mentor-card">
                 <div class="mentor-photo-wrap">
-                    <img src="foto-walter.jpg" alt="Walter José Horning Junior" class="mentor-photo mentor-photo--walter" loading="eager" width="600" height="750">
+                    <img src="walter.png" alt="Walter José Horning Junior" class="mentor-photo mentor-photo--walter" loading="eager" width="600" height="750">
                     <div class="mentor-flag">Facilia, Brasil</div>
                 </div>
                 <div class="mentor-body">
