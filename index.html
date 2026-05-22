@@ -225,12 +225,6 @@
             position: absolute; bottom: -10%; left: -10%;
             width: 40%; height: 40%; border-radius: 50%; filter: blur(120px); z-index: 1;
         }
-        .hero-ia-watermark {
-            position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
-            z-index: 1; pointer-events: none; user-select: none;
-            font-size: 460px; font-weight: 800; line-height: 0.78;
-            letter-spacing: -0.05em; opacity: 0.05;
-        }
         .hero-inner {
             position: relative; z-index: 10;
             max-width: 880px; margin: 0 auto; text-align: center;
@@ -302,6 +296,26 @@
                 rgba(0,0,0,0) 65%);
             filter: blur(28px);
             will-change: opacity, transform;
+        }
+
+        /* Wordmark abaixo da animacao, proporcoes do logo original:
+           largura = 2.39x a largura do simbolo M (entre legs 28.7%-70.6% = 41.9% do container)
+           = 41.9% * 2.39 = ~100% do container
+           gap superior = 33% da altura do M (220px) = ~73px ajustado pra padding visual */
+        .logo-wordmark {
+            display: block;
+            margin: 8px auto 0;
+            width: 65%;
+            max-width: 280px;
+            height: auto;
+            opacity: 0;
+            transform: translateY(6px);
+            animation: wordmark-reveal 1.0s ease-out 9.2s forwards;
+            will-change: opacity, transform;
+        }
+        @keyframes wordmark-reveal {
+            0%   { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Estados iniciais antes da animacao */
@@ -379,6 +393,11 @@
             .logo-anim .halo-wrap {
                 opacity: 0.5;
                 transform: translate(-50%, -50%);
+            }
+            .logo-wordmark {
+                animation: none;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         .hero-h1 {
@@ -957,7 +976,6 @@
         @media (max-width: 520px) {
             .hero-h1 { font-size: 2rem; }
             .hero-stats { grid-template-columns: 1fr 1fr; }
-            .hero-ia-watermark { font-size: 260px; right: -20px; }
             .form-row { grid-template-columns: 1fr; }
             .mentor-body { padding: 24px; }
             .mentor-links { grid-template-columns: 1fr; }
@@ -995,7 +1013,6 @@
     <div class="hero-grid grid-subtle" aria-hidden="true"></div>
     <div class="hero-glow-1 glow-gold" aria-hidden="true"></div>
     <div class="hero-glow-2 glow-gold-subtle" aria-hidden="true"></div>
-    <div class="hero-ia-watermark text-gold" aria-hidden="true">IA</div>
 
     <div class="hero-inner">
         <div class="hero-logo-wrap" aria-label="Logo MAINDSET">
@@ -1008,6 +1025,7 @@
                 <div class="leg leg-2"><img src="logo_leg2.png" alt=""></div>
                 <div class="leg leg-3"><img src="logo_leg3.png" alt=""></div>
             </div>
+            <img class="logo-wordmark" src="logo_wordmark.png" alt="MAINDSET">
         </div>
 
         <span class="eyebrow eyebrow--plain">Escola de Mentorias em IA para líderes e executivos</span>
