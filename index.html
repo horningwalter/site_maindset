@@ -183,6 +183,7 @@
             content: ''; width: 7px; height: 7px; background: var(--gold-500); border-radius: 50%;
             box-shadow: 0 0 16px rgba(212,175,55,0.5);
         }
+        .eyebrow--plain::before { display: none; }
 
         h1, h2, h3 { letter-spacing: -0.025em; line-height: 1.1; }
 
@@ -226,16 +227,58 @@
         }
         .hero-logo-wrap::before {
             content: '';
-            position: absolute; inset: -30% -20%;
-            background: radial-gradient(ellipse at center, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.06) 40%, transparent 65%);
-            filter: blur(30px);
+            position: absolute; inset: -35% -25%;
+            background: radial-gradient(ellipse at center, rgba(244,210,122,0.28) 0%, rgba(212,175,55,0.12) 35%, rgba(212,175,55,0.04) 55%, transparent 72%);
+            filter: blur(42px);
             z-index: 0; pointer-events: none;
+            animation: heroGlowBreathe 5s ease-in-out infinite;
+        }
+        .hero-logo-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -10%;
+            background: conic-gradient(from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(244,210,122,0.10) 60deg,
+                transparent 120deg,
+                transparent 240deg,
+                rgba(212,175,55,0.08) 300deg,
+                transparent 360deg);
+            filter: blur(60px);
+            z-index: 0; pointer-events: none;
+            animation: heroGlowRotate 18s linear infinite;
+            opacity: 0.7;
         }
         .hero-logo {
             position: relative;
             height: 280px; width: auto;
             z-index: 1;
-            filter: drop-shadow(0 20px 50px rgba(212,175,55,0.18));
+            filter:
+                drop-shadow(0 0 22px rgba(244,210,122,0.25))
+                drop-shadow(0 16px 38px rgba(212,175,55,0.28))
+                contrast(1.08)
+                saturate(1.18)
+                brightness(1.06);
+            animation: heroLogoFloat 7s ease-in-out infinite;
+        }
+        @keyframes heroGlowBreathe {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.06); }
+        }
+        @keyframes heroGlowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes heroLogoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-logo,
+            .hero-logo-wrap::before,
+            .hero-logo-wrap::after {
+                animation: none;
+            }
         }
         .hero-h1 {
             font-size: clamp(2.4rem, 5.4vw, 4rem);
@@ -794,7 +837,7 @@
             <img src="logo_hero.png" alt="MAINDSET" class="hero-logo">
         </div>
 
-        <span class="eyebrow">Escola de Mentorias para líderes e executivos</span>
+        <span class="eyebrow eyebrow--plain">Escola de Mentorias em IA para líderes e executivos</span>
 
         <h1 class="hero-h1">
             <span class="line-1 text-silver">Liderança Estratégica</span>
